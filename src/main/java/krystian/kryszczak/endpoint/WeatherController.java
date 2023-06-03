@@ -10,15 +10,16 @@ import krystian.kryszczak.model.Weather;
 import krystian.kryszczak.service.WeatherService;
 import lombok.RequiredArgsConstructor;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 @Controller
 @RequiredArgsConstructor
+@Secured(SecurityRule.IS_ANONYMOUS)
 public final class WeatherController {
     private final WeatherService weatherService;
 
     @Get
-    @Secured(SecurityRule.IS_ANONYMOUS)
-    public Single<Weather> weather(@QueryValue @NotNull String q) {
-        return weatherService.getWeather(q);
+    public Single<Weather> weather(@QueryValue @NotNull String q, @QueryValue @Nullable Boolean airQuality) {
+        return weatherService.getWeather(q, airQuality);
     }
 }
