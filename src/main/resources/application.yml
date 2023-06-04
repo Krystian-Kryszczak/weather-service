@@ -14,11 +14,6 @@ micronaut:
       weather-api:
         url: https://api.weatherapi.com
         read-timeout: 5s
-  server:
-    netty:
-      access-logger:
-        enabled: true
-        log-format: common
 netty:
   default:
     allocator:

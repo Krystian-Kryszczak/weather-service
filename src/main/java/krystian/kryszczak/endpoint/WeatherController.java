@@ -19,7 +19,7 @@ public final class WeatherController {
     private final WeatherService weatherService;
 
     @Get
-    public Single<Weather> weather(@QueryValue @NotNull String q, @QueryValue @Nullable Boolean airQuality) {
-        return weatherService.getWeather(q, airQuality);
+    public Single<Weather> weather(@QueryValue @NotNull String q, @QueryValue @Nullable Boolean airQuality, @QueryValue @Nullable String lang) {
+        return weatherService.getWeather(q, airQuality, lang);
     }
 }

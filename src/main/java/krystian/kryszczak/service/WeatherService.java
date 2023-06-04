@@ -15,7 +15,7 @@ public final class WeatherService {
     private final WeatherApiConfiguration configuration;
     private final WeatherApiClient client;
 
-    public Single<Weather> getWeather(@NotNull String q, @Nullable Boolean aqi) {
-        return client.getWeather(configuration.getKey(), q, Boolean.TRUE.equals(aqi) ? "yes" : "no");
+    public Single<Weather> getWeather(@NotNull String q, @Nullable Boolean aqi, @Nullable String lang) {
+        return client.getWeather(configuration.getKey(), q, Boolean.TRUE.equals(aqi) ? "yes" : "no", lang);
     }
 }
